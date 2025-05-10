@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { PrismaService } from "./prisma.service";
 import { CreateUserDto } from "./dtos/create-user.dto";
 import { UserResponse } from "./user-response.interface";
+import { UpdateUserDto } from "./dtos/update-user.dto";
 
 @Injectable()
 export class UserRepository {
@@ -24,6 +25,24 @@ async findAll(): Promise<UserResponse[]> {
 
 async findById(id: string): Promise<UserResponse | null> {
     const user = await this.prisma.user.findUnique({
+        where: { id },
+    });
+
+    return user ? this.mapToUserResponse(user): null
+}
+
+async update(id:string, data: UpdateUserDto): Promise<UserResponse | null> {
+    const user = await this.prisma.user.update({
+        where: { id },
+        data: {
+            ...data,
+        },
+    });
+
+    return user ? this.mapToUserResponse(user): null
+}
+async delete(id: string): Promise<UserResponse | null> {
+    const user = await this.prisma.user.delete({
         where: { id },
     });
 
