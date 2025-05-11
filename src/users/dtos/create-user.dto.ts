@@ -1,5 +1,27 @@
 import { IsBoolean, IsNotEmpty, IsOptional } from "class-validator";
 
+// export class AddressDto {
+//     @IsNotEmpty({ message: 'Street is required' })
+//     street: string;
+
+//     @IsNotEmpty({ message: 'Number is required' })
+//     number: string;
+
+//     @IsOptional()
+//     block?: string;
+
+//     @IsOptional()
+//     apartment?: string;
+
+//     @IsNotEmpty({ message: 'Country is required' })
+//     country: string;
+
+//     @IsNotEmpty({ message: 'City is required' })
+//     city: string;
+
+//     @IsNotEmpty({ message: 'District is required' })
+//     district: string;
+// }
 
 export class CreateUserDto {
     @IsNotEmpty({ message: 'Status is required' })
@@ -14,28 +36,19 @@ export class CreateUserDto {
 
     @IsNotEmpty({ message: 'Age is required' })
     age: number;
-    
+
     @IsNotEmpty({ message: 'Document is required' })
     document: string;
 
-    @IsNotEmpty({ message: 'Street is required' })
+    @IsNotEmpty({ message: 'Address is required' })
+      @IsNotEmpty()
+    address: {
     street: string;
-
-    @IsNotEmpty({ message: 'Number is required' })
     number: string;
-
-    @IsOptional()
     block?: string;
-
-    @IsOptional()
     apartment?: string;
-
-    @IsNotEmpty({ message: 'Country is required' })
     country: string;
-
-    @IsNotEmpty({ message: 'City is required' })
     city: string;
-
-    @IsNotEmpty({ message: 'District is required' })
     district: string;
+  };
 }

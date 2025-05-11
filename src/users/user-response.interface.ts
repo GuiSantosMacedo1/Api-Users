@@ -7,12 +7,12 @@ export interface UserResponse{
     age: number;
     document: string;
     address: {
-        street: string;
-        number: string;
+        street?: string;
+        number?: string;
         block?: string;
         apartment?: string;
-        country: string;
-        city: string;
-        district: string;
+        country?: string;
+        city?: string;
+        district?: string;
     };
 }

@@ -128,6 +128,11 @@ exports.Prisma.UserScalarFieldEnum = {
   age: 'age',
   sex: 'sex',
   document: 'document',
+  addressId: 'addressId'
+};
+
+exports.Prisma.AddressScalarFieldEnum = {
+  id: 'id',
   street: 'street',
   number: 'number',
   block: 'block',
@@ -154,7 +159,8 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Address: 'Address'
 };
 
 /**

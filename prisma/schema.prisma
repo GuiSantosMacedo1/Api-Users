@@ -16,9 +16,15 @@ model User {
   status    Boolean  @default(true)
   createdAt DateTime @default(now())
   name      String
-  age       Int  
+  age       Int
   sex       String
   document  String
+  address   Address? @relation(fields: [addressId], references: [id])
+  addressId String?
+}
+
+model Address {
+  id        String   @id @default(uuid())
   street    String
   number    String
   block     String?
@@ -26,4 +32,6 @@ model User {
   country   String
   city      String
   district  String
+
+  User User[]
 }
