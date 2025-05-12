@@ -63,6 +63,18 @@ async update(id:string, data: UpdateUserDto): Promise<UserResponse | null> {
         where: { id },
         data: {
             ...data,
+            address: {
+                update: {
+                    street: data.address.street,
+                    number: data.address.number,
+                    block: data.address.block,
+                    apartment: data.address.apartment,
+                    country: data.address.country,
+                    city: data.address.city,
+                    district: data.address.district,
+                },
+            },
+          
         },
                 include: {
             address: true, // Inclui o endereço no retorno

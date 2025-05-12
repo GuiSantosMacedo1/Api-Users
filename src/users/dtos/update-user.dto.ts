@@ -22,31 +22,14 @@ export class UpdateUserDto {
     @IsString({ message: 'Document is must be a string' })
     document?: string;
 
-    @IsOptional()
-    @IsString({ message: 'Street is must be a string' })
-    street?: string;
-
-    @IsOptional()
-    @IsString({ message: 'Number is must be a string' })
-    number?: string;
-
-    @IsOptional()
-    @IsString({ message: 'Number is must be a string' })
+    @IsOptional({ message: 'Address is required' })
+    address: {
+    street: string;
+    number: string;
     block?: string;
-
-    @IsOptional()
-    @IsString({ message: 'Number is must be a string' })
     apartment?: string;
-
-    @IsOptional()
-    @IsString({ message: 'Country is must be a string' })
-    country?: string;
-
-    @IsOptional()
-    @IsString({ message: 'City is must be a string' })
-    city?: string;
-
-    @IsOptional()
-    @IsString({ message: 'District is must be a string' })
-    district?: string;
+    country: string;
+    city: string;
+    district: string;
+  };
 }
