@@ -9,16 +9,16 @@ export class UserRepository {
     constructor(private readonly prisma: PrismaService) {}
     async create(data: CreateUserDto): Promise<UserResponse> {
     const address = await this.prisma.address.create({
-    data: {
-      street: data.address.street,
-      number: data.address.number,
-      block: data.address.block,
-      apartment: data.address.apartment,
-      country: data.address.country,
-      city: data.address.city,
-      district: data.address.district,
-    },
-  });
+  data: {
+    street: data.address.street,
+    number: String(data.address.number),      
+    block: data.address.block,
+    apartment: data.address.apartment ? String(data.address.apartment) : null,
+    country: data.address.country,
+    city: data.address.city,
+    district: data.address.district,
+  },
+});
   const createUser = await this.prisma.user.create({
     data: {
       status: data.status,
@@ -26,10 +26,10 @@ export class UserRepository {
       age: data.age,
       sex: data.sex,
       document: data.document,
-      addressId: address.id, // Associa o endereço ao usuário
+      addressId: address.id, 
     },
     include: {
-      address: true, // Inclui o endereço no retorno
+      address: true,
     },
   });
 
@@ -40,7 +40,7 @@ export class UserRepository {
 async findAll(): Promise<UserResponse[]> {
     const users = await this.prisma.user.findMany({
         include: {
-            address: true, // Inclui o endereço no retorno
+            address: true,
         },
     });
     return users.map((user) => this.mapToUserResponse(user));
@@ -51,7 +51,7 @@ async findById(id: string): Promise<UserResponse | null> {
     const user = await this.prisma.user.findUnique({
         where: { id },
                 include: {
-            address: true, // Inclui o endereço no retorno
+            address: true,
         },
     });
 
@@ -77,7 +77,7 @@ async update(id:string, data: UpdateUserDto): Promise<UserResponse | null> {
           
         },
                 include: {
-            address: true, // Inclui o endereço no retorno
+            address: true,
         },
     });
 
@@ -87,7 +87,7 @@ async delete(id: string): Promise<UserResponse | null> {
     const user = await this.prisma.user.delete({
         where: { id },
                 include: {
-            address: true, // Inclui o endereço no retorno
+            address: true,
         },
     });
 
@@ -96,7 +96,7 @@ async delete(id: string): Promise<UserResponse | null> {
 
 
 private mapToUserResponse(user: any): UserResponse {
-    console.log('User object:', user); // Log para depuração
+    console.log('User object:', user);
   return {
     id: user.id,
     status: user.status,

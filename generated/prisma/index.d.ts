@@ -2293,13 +2293,13 @@ export namespace Prisma {
 
   export type AddressGroupByOutputType = {
     id: string
-    street: string
-    number: string
+    street: string | null
+    number: string | null
     block: string | null
     apartment: string | null
-    country: string
-    city: string
-    district: string
+    country: string | null
+    city: string | null
+    district: string | null
     _count: AddressCountAggregateOutputType | null
     _min: AddressMinAggregateOutputType | null
     _max: AddressMaxAggregateOutputType | null
@@ -2380,13 +2380,13 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      street: string
-      number: string
+      street: string | null
+      number: string | null
       block: string | null
       apartment: string | null
-      country: string
-      city: string
-      district: string
+      country: string | null
+      city: string | null
+      district: string | null
     }, ExtArgs["result"]["address"]>
     composites: {}
   }
@@ -3037,7 +3037,7 @@ export namespace Prisma {
     /**
      * The data needed to create a Address.
      */
-    data: XOR<AddressCreateInput, AddressUncheckedCreateInput>
+    data?: XOR<AddressCreateInput, AddressUncheckedCreateInput>
   }
 
   /**
@@ -3463,25 +3463,25 @@ export namespace Prisma {
     OR?: AddressWhereInput[]
     NOT?: AddressWhereInput | AddressWhereInput[]
     id?: StringFilter<"Address"> | string
-    street?: StringFilter<"Address"> | string
-    number?: StringFilter<"Address"> | string
+    street?: StringNullableFilter<"Address"> | string | null
+    number?: StringNullableFilter<"Address"> | string | null
     block?: StringNullableFilter<"Address"> | string | null
     apartment?: StringNullableFilter<"Address"> | string | null
-    country?: StringFilter<"Address"> | string
-    city?: StringFilter<"Address"> | string
-    district?: StringFilter<"Address"> | string
+    country?: StringNullableFilter<"Address"> | string | null
+    city?: StringNullableFilter<"Address"> | string | null
+    district?: StringNullableFilter<"Address"> | string | null
     User?: UserListRelationFilter
   }
 
   export type AddressOrderByWithRelationInput = {
     id?: SortOrder
-    street?: SortOrder
-    number?: SortOrder
+    street?: SortOrderInput | SortOrder
+    number?: SortOrderInput | SortOrder
     block?: SortOrderInput | SortOrder
     apartment?: SortOrderInput | SortOrder
-    country?: SortOrder
-    city?: SortOrder
-    district?: SortOrder
+    country?: SortOrderInput | SortOrder
+    city?: SortOrderInput | SortOrder
+    district?: SortOrderInput | SortOrder
     User?: UserOrderByRelationAggregateInput
   }
 
@@ -3490,25 +3490,25 @@ export namespace Prisma {
     AND?: AddressWhereInput | AddressWhereInput[]
     OR?: AddressWhereInput[]
     NOT?: AddressWhereInput | AddressWhereInput[]
-    street?: StringFilter<"Address"> | string
-    number?: StringFilter<"Address"> | string
+    street?: StringNullableFilter<"Address"> | string | null
+    number?: StringNullableFilter<"Address"> | string | null
     block?: StringNullableFilter<"Address"> | string | null
     apartment?: StringNullableFilter<"Address"> | string | null
-    country?: StringFilter<"Address"> | string
-    city?: StringFilter<"Address"> | string
-    district?: StringFilter<"Address"> | string
+    country?: StringNullableFilter<"Address"> | string | null
+    city?: StringNullableFilter<"Address"> | string | null
+    district?: StringNullableFilter<"Address"> | string | null
     User?: UserListRelationFilter
   }, "id">
 
   export type AddressOrderByWithAggregationInput = {
     id?: SortOrder
-    street?: SortOrder
-    number?: SortOrder
+    street?: SortOrderInput | SortOrder
+    number?: SortOrderInput | SortOrder
     block?: SortOrderInput | SortOrder
     apartment?: SortOrderInput | SortOrder
-    country?: SortOrder
-    city?: SortOrder
-    district?: SortOrder
+    country?: SortOrderInput | SortOrder
+    city?: SortOrderInput | SortOrder
+    district?: SortOrderInput | SortOrder
     _count?: AddressCountOrderByAggregateInput
     _max?: AddressMaxOrderByAggregateInput
     _min?: AddressMinOrderByAggregateInput
@@ -3519,13 +3519,13 @@ export namespace Prisma {
     OR?: AddressScalarWhereWithAggregatesInput[]
     NOT?: AddressScalarWhereWithAggregatesInput | AddressScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Address"> | string
-    street?: StringWithAggregatesFilter<"Address"> | string
-    number?: StringWithAggregatesFilter<"Address"> | string
+    street?: StringNullableWithAggregatesFilter<"Address"> | string | null
+    number?: StringNullableWithAggregatesFilter<"Address"> | string | null
     block?: StringNullableWithAggregatesFilter<"Address"> | string | null
     apartment?: StringNullableWithAggregatesFilter<"Address"> | string | null
-    country?: StringWithAggregatesFilter<"Address"> | string
-    city?: StringWithAggregatesFilter<"Address"> | string
-    district?: StringWithAggregatesFilter<"Address"> | string
+    country?: StringNullableWithAggregatesFilter<"Address"> | string | null
+    city?: StringNullableWithAggregatesFilter<"Address"> | string | null
+    district?: StringNullableWithAggregatesFilter<"Address"> | string | null
   }
 
   export type UserCreateInput = {
@@ -3606,83 +3606,83 @@ export namespace Prisma {
 
   export type AddressCreateInput = {
     id?: string
-    street: string
-    number: string
+    street?: string | null
+    number?: string | null
     block?: string | null
     apartment?: string | null
-    country: string
-    city: string
-    district: string
+    country?: string | null
+    city?: string | null
+    district?: string | null
     User?: UserCreateNestedManyWithoutAddressInput
   }
 
   export type AddressUncheckedCreateInput = {
     id?: string
-    street: string
-    number: string
+    street?: string | null
+    number?: string | null
     block?: string | null
     apartment?: string | null
-    country: string
-    city: string
-    district: string
+    country?: string | null
+    city?: string | null
+    district?: string | null
     User?: UserUncheckedCreateNestedManyWithoutAddressInput
   }
 
   export type AddressUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    street?: StringFieldUpdateOperationsInput | string
-    number?: StringFieldUpdateOperationsInput | string
+    street?: NullableStringFieldUpdateOperationsInput | string | null
+    number?: NullableStringFieldUpdateOperationsInput | string | null
     block?: NullableStringFieldUpdateOperationsInput | string | null
     apartment?: NullableStringFieldUpdateOperationsInput | string | null
-    country?: StringFieldUpdateOperationsInput | string
-    city?: StringFieldUpdateOperationsInput | string
-    district?: StringFieldUpdateOperationsInput | string
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    district?: NullableStringFieldUpdateOperationsInput | string | null
     User?: UserUpdateManyWithoutAddressNestedInput
   }
 
   export type AddressUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    street?: StringFieldUpdateOperationsInput | string
-    number?: StringFieldUpdateOperationsInput | string
+    street?: NullableStringFieldUpdateOperationsInput | string | null
+    number?: NullableStringFieldUpdateOperationsInput | string | null
     block?: NullableStringFieldUpdateOperationsInput | string | null
     apartment?: NullableStringFieldUpdateOperationsInput | string | null
-    country?: StringFieldUpdateOperationsInput | string
-    city?: StringFieldUpdateOperationsInput | string
-    district?: StringFieldUpdateOperationsInput | string
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    district?: NullableStringFieldUpdateOperationsInput | string | null
     User?: UserUncheckedUpdateManyWithoutAddressNestedInput
   }
 
   export type AddressCreateManyInput = {
     id?: string
-    street: string
-    number: string
+    street?: string | null
+    number?: string | null
     block?: string | null
     apartment?: string | null
-    country: string
-    city: string
-    district: string
+    country?: string | null
+    city?: string | null
+    district?: string | null
   }
 
   export type AddressUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    street?: StringFieldUpdateOperationsInput | string
-    number?: StringFieldUpdateOperationsInput | string
+    street?: NullableStringFieldUpdateOperationsInput | string | null
+    number?: NullableStringFieldUpdateOperationsInput | string | null
     block?: NullableStringFieldUpdateOperationsInput | string | null
     apartment?: NullableStringFieldUpdateOperationsInput | string | null
-    country?: StringFieldUpdateOperationsInput | string
-    city?: StringFieldUpdateOperationsInput | string
-    district?: StringFieldUpdateOperationsInput | string
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    district?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AddressUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    street?: StringFieldUpdateOperationsInput | string
-    number?: StringFieldUpdateOperationsInput | string
+    street?: NullableStringFieldUpdateOperationsInput | string | null
+    number?: NullableStringFieldUpdateOperationsInput | string | null
     block?: NullableStringFieldUpdateOperationsInput | string | null
     apartment?: NullableStringFieldUpdateOperationsInput | string | null
-    country?: StringFieldUpdateOperationsInput | string
-    city?: StringFieldUpdateOperationsInput | string
-    district?: StringFieldUpdateOperationsInput | string
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    district?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -4143,24 +4143,24 @@ export namespace Prisma {
 
   export type AddressCreateWithoutUserInput = {
     id?: string
-    street: string
-    number: string
+    street?: string | null
+    number?: string | null
     block?: string | null
     apartment?: string | null
-    country: string
-    city: string
-    district: string
+    country?: string | null
+    city?: string | null
+    district?: string | null
   }
 
   export type AddressUncheckedCreateWithoutUserInput = {
     id?: string
-    street: string
-    number: string
+    street?: string | null
+    number?: string | null
     block?: string | null
     apartment?: string | null
-    country: string
-    city: string
-    district: string
+    country?: string | null
+    city?: string | null
+    district?: string | null
   }
 
   export type AddressCreateOrConnectWithoutUserInput = {
@@ -4181,24 +4181,24 @@ export namespace Prisma {
 
   export type AddressUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    street?: StringFieldUpdateOperationsInput | string
-    number?: StringFieldUpdateOperationsInput | string
+    street?: NullableStringFieldUpdateOperationsInput | string | null
+    number?: NullableStringFieldUpdateOperationsInput | string | null
     block?: NullableStringFieldUpdateOperationsInput | string | null
     apartment?: NullableStringFieldUpdateOperationsInput | string | null
-    country?: StringFieldUpdateOperationsInput | string
-    city?: StringFieldUpdateOperationsInput | string
-    district?: StringFieldUpdateOperationsInput | string
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    district?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AddressUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    street?: StringFieldUpdateOperationsInput | string
-    number?: StringFieldUpdateOperationsInput | string
+    street?: NullableStringFieldUpdateOperationsInput | string | null
+    number?: NullableStringFieldUpdateOperationsInput | string | null
     block?: NullableStringFieldUpdateOperationsInput | string | null
     apartment?: NullableStringFieldUpdateOperationsInput | string | null
-    country?: StringFieldUpdateOperationsInput | string
-    city?: StringFieldUpdateOperationsInput | string
-    district?: StringFieldUpdateOperationsInput | string
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    district?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserCreateWithoutAddressInput = {

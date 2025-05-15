@@ -25,13 +25,13 @@ model User {
 
 model Address {
   id        String  @id @default(uuid())
-  street    String
-  number    String
+  street    String? // <--- Adicione o ?
+  number    String?
   block     String?
   apartment String?
-  country   String
-  city      String
-  district  String
+  country   String?
+  city      String?
+  district  String?
 
   User User[]
 }
